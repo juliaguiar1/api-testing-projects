@@ -1,0 +1,482 @@
+{
+	"info": {
+		"_postman_id": "bf0c293e-d8ab-44bf-86d0-9666134c4069",
+		"name": "Hunter API - Resources",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41876995"
+	},
+	"item": [
+		{
+			"name": "Leads",
+			"item": [
+				{
+					"name": "TC003 - Criar Novo Lead",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonResponse = pm.response.json();\r",
+									"pm.environment.set(\"id_lead\", jsonResponse.data.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.iterationData.get(\"email\")\r",
+									"pm.iterationData.get(\"first_name\")\r",
+									"pm.iterationData.get(\"last_name\")\r",
+									"pm.iterationData.get(\"position\")\r",
+									"pm.iterationData.get(\"company\")\r",
+									"pm.iterationData.get(\"company_industry\")"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{email}}\",\r\n    \"first_name\": \"{{first_name}}\",\r\n    \"last_name\": \"{{last_name}}\",\r\n    \"position\": \"{{position}}\",\r\n    \"company\": \"{{company}}\",\r\n    \"company_industry\": \"{{company_industry}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}leads",
+							"host": [
+								"{{url_base}}leads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TC001 - Recuperar Leads Cadastrados",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}leads",
+							"host": [
+								"{{url_base}}leads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TC002 - Recuperar Lead Específico",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}leads/{{id_lead}}",
+							"host": [
+								"{{url_base}}leads"
+							],
+							"path": [
+								"{{id_lead}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TC004 - Ediar Lead",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.iterationData.get(\"email_edit\")\r",
+									"pm.iterationData.get(\"first_name_edit\")\r",
+									"pm.iterationData.get(\"last_name_edit\")\r",
+									"pm.iterationData.get(\"position_edit\")\r",
+									"pm.iterationData.get(\"company_edit\")\r",
+									"pm.iterationData.get(\"company_industry_edit\")"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{email_edit}}\",\r\n    \"first_name\": \"{{first_name_edit}}\",\r\n    \"last_name\": \"{{last_name_edit}}\",\r\n    \"position\": \"{{position_edit}}\",\r\n    \"company\": \"{{company_edit}}\",\r\n    \"company_industry\": \"{{company_industry_edit}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}leads/{{id_lead}}",
+							"host": [
+								"{{url_base}}leads"
+							],
+							"path": [
+								"{{id_lead}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TC005 - Excluir Lead",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}leads/{{id_lead}}",
+							"host": [
+								"{{url_base}}leads"
+							],
+							"path": [
+								"{{id_lead}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Leads List",
+			"item": [
+				{
+					"name": "TC008 - Criar NovaLista de Leads",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonResponse = pm.response.json();\r",
+									"pm.environment.set(\"id_lead_list\", jsonResponse.data.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.iterationData.get(\"name_lead_list\")"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{name_lead_list}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}leads_lists",
+							"host": [
+								"{{url_base}}leads_lists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TC006 - Recuperar todas as listas de leads cadastradas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}leads_lists",
+							"host": [
+								"{{url_base}}leads_lists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TC007 - Recuperar lista de leads específica",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}leads_lists/{{id_lead_list}}",
+							"host": [
+								"{{url_base}}leads_lists"
+							],
+							"path": [
+								"{{id_lead_list}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TC009 - Editar lista de lead",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.iterationData.get(\"name_lead_list_edit\")"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"{{name_lead_list_edit}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}leads_lists/{{id_lead_list}}",
+							"host": [
+								"{{url_base}}leads_lists"
+							],
+							"path": [
+								"{{id_lead_list}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TC010 - Deletar Lista de Lead",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}leads_lists/{{id_lead_list}}",
+							"host": [
+								"{{url_base}}leads_lists"
+							],
+							"path": [
+								"{{id_lead_list}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{API_KEY}}",
+				"type": "string"
+			},
+			{
+				"key": "in",
+				"value": "query",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "api_key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"if (pm.request.method == \"GET\") {\r",
+					"\r",
+					"    pm.test(\"Status code is 200\", function () {\r",
+					"        pm.response.to.have.status(200);\r",
+					"    });\r",
+					"\r",
+					"    pm.test(\"Status code has 'OK'\", function () {\r",
+					"        pm.response.to.have.status(\"OK\");\r",
+					"    });\r",
+					"}\r",
+					"\r",
+					"if (pm.request.method == \"GET\" || pm.request.method == \"POST\") {\r",
+					"\r",
+					"    pm.test(\"Response time is less than 2000ms\", function () {\r",
+					"        pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+					"    });\r",
+					"\r",
+					"}\r",
+					"\r",
+					"if (pm.request.method == \"POST\") {\r",
+					"\r",
+					"    pm.test(\"Status code is 200, 201 or 202\", function () {\r",
+					"        pm.expect(pm.response.code).to.be.oneOf([200, 201, 202]);\r",
+					"    });\r",
+					"\r",
+					"\r",
+					"    pm.test(\"Status code has 'Created'\", function () {\r",
+					"        pm.response.to.have.status(\"Created\");\r",
+					"    });\r",
+					"\r",
+					"}\r",
+					"\r",
+					"if (pm.request.method == \"PUT\" || pm.request.method == \"DELETE\") {\r",
+					"\r",
+					"    pm.test(\"Status code is 204\", function () {\r",
+					"        pm.response.to.have.status(204);\r",
+					"    });\r",
+					"\r",
+					"    pm.test(\"Status code tem 'No content'\", function () {\r",
+					"        pm.response.to.have.status('No Content');\r",
+					"    })\r",
+					"\r",
+					"}"
+				]
+			}
+		}
+	]
+}
