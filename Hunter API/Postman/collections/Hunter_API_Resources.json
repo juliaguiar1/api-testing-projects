@@ -10,7 +10,7 @@
 			"name": "Leads",
 			"item": [
 				{
-					"name": "TC003 - Criar Novo Lead",
+					"name": "TC003 - Create New Lead",
 					"event": [
 						{
 							"listen": "test",
@@ -61,7 +61,7 @@
 					"response": []
 				},
 				{
-					"name": "TC001 - Recuperar Leads Cadastrados",
+					"name": "TC001 - Retrieve Registered Leads",
 					"event": [
 						{
 							"listen": "test",
@@ -87,7 +87,7 @@
 					"response": []
 				},
 				{
-					"name": "TC002 - Recuperar Lead Específico",
+					"name": "TC002 - Retrieve Specific Lead",
 					"event": [
 						{
 							"listen": "test",
@@ -128,60 +128,60 @@
 					"response": []
 				},
 				{
-					"name": "TC004 - Ediar Lead",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"pm.iterationData.get(\"email_edit\")\r",
-									"pm.iterationData.get(\"first_name_edit\")\r",
-									"pm.iterationData.get(\"last_name_edit\")\r",
-									"pm.iterationData.get(\"position_edit\")\r",
-									"pm.iterationData.get(\"company_edit\")\r",
-									"pm.iterationData.get(\"company_industry_edit\")"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"{{email_edit}}\",\r\n    \"first_name\": \"{{first_name_edit}}\",\r\n    \"last_name\": \"{{last_name_edit}}\",\r\n    \"position\": \"{{position_edit}}\",\r\n    \"company\": \"{{company_edit}}\",\r\n    \"company_industry\": \"{{company_industry_edit}}\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url_base}}leads/{{id_lead}}",
-							"host": [
-								"{{url_base}}leads"
-							],
-							"path": [
-								"{{id_lead}}"
-							]
-						}
-					},
-					"response": []
+					"name": "TC004 - Edit Lead",
+    "event": [
+        {
+            "listen": "test",
+            "script": {
+                "exec": [
+
+                ],
+                "type": "text/javascript",
+                "packages": {}
+            }
+        },
+        {
+            "listen": "prerequest",
+            "script": {
+                "exec": [
+                    "pm.iterationData.get(\"email_edit\")",
+                    "pm.iterationData.get(\"first_name_edit\")",
+                    "pm.iterationData.get(\"last_name_edit\")",
+                    "pm.iterationData.get(\"position_edit\")",
+                    "pm.iterationData.get(\"company_edit\")",
+                    "pm.iterationData.get(\"company_industry_edit\")"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+            }
+        }
+    ],
+    "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+            "mode": "raw",
+            "raw": "{\r\n    \"email\": \"{{email_edit}}\",\r\n    \"first_name\": \"{{first_name_edit}}\",\r\n    \"last_name\": \"{{last_name_edit}}\",\r\n    \"position\": \"{{position_edit}}\",\r\n    \"company\": \"{{company_edit}}\",\r\n    \"company_industry\": \"{{company_industry_edit}}\"\r\n}",
+            "options": {
+                "raw": {
+                    "language": "json"
+                }
+            }
+        },
+        "url": {
+            "raw": "{{url_base}}leads/{{id_lead}}",
+            "host": [
+                "{{url_base}}leads"
+            ],
+            "path": [
+                "{{id_lead}}"
+            ]
+        }
+    },
+    "response": []
 				},
 				{
-					"name": "TC005 - Excluir Lead",
+					"name": "TC005 - Delete Lead",
 					"event": [
 						{
 							"listen": "test",
@@ -215,7 +215,7 @@
 			"name": "Leads List",
 			"item": [
 				{
-					"name": "TC008 - Criar NovaLista de Leads",
+					"name": "TC008 - Create New Lead List",
 					"event": [
 						{
 							"listen": "test",
@@ -261,7 +261,7 @@
 					"response": []
 				},
 				{
-					"name": "TC006 - Recuperar todas as listas de leads cadastradas",
+					"name": "TC006 - Retrieve All Lead Lists",
 					"event": [
 						{
 							"listen": "test",
@@ -287,7 +287,7 @@
 					"response": []
 				},
 				{
-					"name": "TC007 - Recuperar lista de leads específica",
+					"name": "TC007 - Retrieve Specific Lead List",
 					"event": [
 						{
 							"listen": "test",
@@ -316,7 +316,7 @@
 					"response": []
 				},
 				{
-					"name": "TC009 - Editar lista de lead",
+					"name": "TC009 - Edit Lead List",
 					"event": [
 						{
 							"listen": "test",
@@ -364,7 +364,7 @@
 					"response": []
 				},
 				{
-					"name": "TC010 - Deletar Lista de Lead",
+					"name": "TC010 - Delete Lead List",
 					"event": [
 						{
 							"listen": "test",
@@ -470,7 +470,7 @@
 					"        pm.response.to.have.status(204);\r",
 					"    });\r",
 					"\r",
-					"    pm.test(\"Status code tem 'No content'\", function () {\r",
+					"    pm.test(\"Status code has 'No content'\", function () {\r",
 					"        pm.response.to.have.status('No Content');\r",
 					"    })\r",
 					"\r",

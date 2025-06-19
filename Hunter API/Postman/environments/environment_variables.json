@@ -16,7 +16,7 @@
 		},
 		{
 			"key": "API_KEY",
-			"value": "{{API_KEY}}",
+			"value": "YOUR API KEY",
 			"type": "default",
 			"enabled": true
 		}
