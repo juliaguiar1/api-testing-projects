@@ -48,7 +48,14 @@ After importing the collection and setting the environment variables, you can st
    npm install -g newman
 
 2. Run the collection using the following command:
-```bash
-newman run Postman/collections/Hunter_API_Resources.json -e Postman/environments/environment_variables.json
+   ```bash
+   newman run Postman/collections/Hunter_API_Resources.json -e Postman/environments/environment_variables.json
 
+### 5. Run the collection using custom script
 
+To run the collection using the Newman CLI along with a CSV file for data-driven testing and generate custom HTML reports:
+
+1. Ensure that the necessary environment variables and API keys are set in the environment_variables.json file.
+2. Use the run-collection.sh script to execute the collection with the following command:
+  ```bash
+./scripts/run-collection.sh
